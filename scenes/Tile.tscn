@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/tile.gd" id="1_3v2m0"]
+
+[node name="Tile" type="Node2D"]
+script = ExtResource("1_3v2m0")
+
+[node name="Body" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+color = Color(0.95, 0.35, 0.45, 1)
+
+[node name="Outline" type="Line2D" parent="."]
+points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+width = 3.0
+default_color = Color(1, 1, 1, 0.3)
+closed = true
+
+[node name="Symbol" type="Label" parent="."]
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "A"
