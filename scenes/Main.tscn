@@ -1,8 +1,45 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/Board.tscn" id="1_8kq0r"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="2_1c3e0"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_n5d1b"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4_kr13t"]
+[ext_resource type="PackedScene" path="res://scenes/ui/WinPopup.tscn" id="5_q6a8o"]
+[ext_resource type="PackedScene" path="res://scenes/ui/LosePopup.tscn" id="6_gq0ee"]
+[ext_resource type="PackedScene" path="res://scenes/ui/BonusPopup.tscn" id="7_ly6n5"]
+[ext_resource type="Script" path="res://scripts/player_wallet.gd" id="8_8m6nr"]
+[ext_resource type="Script" path="res://scripts/economy_manager.gd" id="9_k24oi"]
+[ext_resource type="Script" path="res://scripts/tycoon_manager.gd" id="10_o21un"]
+[ext_resource type="PackedScene" path="res://scenes/ui/TycoonPanel.tscn" id="11_w3bmt"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Board" parent="." instance=ExtResource("1_8kq0r")]
 position = Vector2(96, 96)
+
+[node name="PlayerWallet" type="Node" parent="."]
+script = ExtResource("8_8m6nr")
+
+[node name="EconomyManager" type="Node" parent="."]
+script = ExtResource("9_k24oi")
+
+[node name="TycoonManager" type="Node" parent="."]
+script = ExtResource("10_o21un")
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("2_1c3e0")
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("3_n5d1b")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("4_kr13t")]
+
+[node name="TycoonPanel" parent="UI" instance=ExtResource("11_w3bmt")]
+
+[node name="WinPopup" parent="UI" instance=ExtResource("5_q6a8o")]
+
+[node name="LosePopup" parent="UI" instance=ExtResource("6_gq0ee")]
+
+[node name="BonusPopup" parent="UI" instance=ExtResource("7_ly6n5")]

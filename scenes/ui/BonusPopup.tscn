@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/bonus_popup.gd" id="1_2ctqx"]
+[ext_resource type="Script" path="res://scripts/bonus_board.gd" id="2_t4ulr"]
+[ext_resource type="Script" path="res://scripts/bonus_manager.gd" id="3_q9mxh"]
+
+[node name="BonusPopup" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_2ctqx")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0.10, 0.02, 0.15, 0.82)
+
+[node name="Center" type="CenterContainer" parent="Backdrop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Backdrop/Center"]
+layout_mode = 2
+custom_minimum_size = Vector2(760, 760)
+
+[node name="Margin" type="MarginContainer" parent="Backdrop/Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="Root" type="VBoxContainer" parent="Backdrop/Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Backdrop/Center/Panel/Margin/Root"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "Sweet Bonanza Bonus"
+
+[node name="SourceGrid" type="GridContainer" parent="Backdrop/Center/Panel/Margin/Root"]
+layout_mode = 2
+columns = 2
+
+[node name="SourceScoreTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "Final Score"
+
+[node name="SourceScoreValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "0"
+
+[node name="SourceMovesTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "Remaining Moves"
+
+[node name="SourceMovesValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "0"
+
+[node name="SourceComboTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "Max Combo"
+
+[node name="SourceComboValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "0"
+
+[node name="SourcePowerTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "Bonus Power"
+
+[node name="SourcePowerValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/SourceGrid"]
+layout_mode = 2
+text = "0"
+
+[node name="RunGrid" type="GridContainer" parent="Backdrop/Center/Panel/Margin/Root"]
+layout_mode = 2
+columns = 2
+
+[node name="StepWinTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "Tumble Win"
+
+[node name="StepWinValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "0"
+
+[node name="TotalWinTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "Total Payout"
+
+[node name="TotalWinValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "0"
+
+[node name="MultiplierTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "Candy Multiplier"
+
+[node name="MultiplierValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "x1"
+
+[node name="RefreshTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "Re-Drops"
+
+[node name="RefreshValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "0 / 0"
+
+[node name="StatusTitle" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "Status"
+
+[node name="StatusValue" type="Label" parent="Backdrop/Center/Panel/Margin/Root/RunGrid"]
+layout_mode = 2
+text = "Hidden"
+
+[node name="BoardHolder" type="Control" parent="Backdrop/Center/Panel/Margin/Root"]
+custom_minimum_size = Vector2(460, 420)
+layout_mode = 2
+
+[node name="BonusBoard" type="Node2D" parent="Backdrop/Center/Panel/Margin/Root/BoardHolder"]
+position = Vector2(24, 18)
+script = ExtResource("2_t4ulr")
+
+[node name="Footer" type="HBoxContainer" parent="Backdrop/Center/Panel/Margin/Root"]
+layout_mode = 2
+alignment = 2
+
+[node name="CollectButton" type="Button" parent="Backdrop/Center/Panel/Margin/Root/Footer"]
+layout_mode = 2
+disabled = true
+text = "Collect"
+
+[node name="FeedbackLayer" type="Node2D" parent="Backdrop/Center/Panel/Margin/Root"]
+
+[node name="BonusManager" type="Node" parent="."]
+script = ExtResource("3_q9mxh")

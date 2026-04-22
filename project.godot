@@ -11,9 +11,20 @@ config_version=5
 [application]
 
 config/name="SweetCrush"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://scripts/scene_manager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [physics]
 

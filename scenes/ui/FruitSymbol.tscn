@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/fruit_symbol.gd" id="1_o0v5v"]
+
+[node name="FruitSymbol" type="Node2D"]
+script = ExtResource("1_o0v5v")
+
+[node name="Body" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
+color = Color(0.96, 0.27, 0.40, 1)
+
+[node name="Outline" type="Line2D" parent="."]
+points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
+width = 2.0
+default_color = Color(1, 1, 1, 0.3)
+closed = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "CH"

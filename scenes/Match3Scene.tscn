@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://hwwe5apn36ru"]
+
+[ext_resource type="PackedScene" path="res://scenes/Board.tscn" id="1_8kq0r"]
+[ext_resource type="Script" uid="uid://bceg68fu4jnqd" path="res://scripts/level_manager.gd" id="2_1c3e0"]
+[ext_resource type="Texture2D" uid="uid://0781cw5oueoe" path="res://assets/backgrounds/game/game.png" id="2_tuq0b"]
+[ext_resource type="Script" uid="uid://bq7ih0stoa4an" path="res://scripts/game_manager.gd" id="3_n5d1b"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4_kr13t"]
+[ext_resource type="PackedScene" path="res://scenes/ui/WinPopup.tscn" id="5_q6a8o"]
+[ext_resource type="PackedScene" path="res://scenes/ui/LosePopup.tscn" id="6_gq0ee"]
+[ext_resource type="PackedScene" path="res://scenes/ui/BonusPopup.tscn" id="7_ly6n5"]
+[ext_resource type="PackedScene" path="res://scenes/ui/ResultPopup.tscn" id="12_4w5aa"]
+[ext_resource type="PackedScene" path="res://scenes/ui/BackgroundLayer.tscn" id="13_h2de9"]
+[ext_resource type="Script" path="res://scripts/match3_scene.gd" id="14_c8yq3"]
+
+[node name="Match3Scene" type="Node2D" unique_id=1969345274]
+script = ExtResource("14_c8yq3")
+
+[node name="BackgroundCanvas" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" parent="BackgroundCanvas" unique_id=1779969088 instance=ExtResource("13_h2de9")]
+background_texture = ExtResource("2_tuq0b")
+fallback_top_color = Color(0.1, 0.14, 0.28, 1)
+fallback_bottom_color = Color(0.05, 0.07, 0.14, 1)
+overlay_color = Color(0.8, 0.9, 1, 0.03)
+
+[node name="Board" parent="." unique_id=1513849082 instance=ExtResource("1_8kq0r")]
+
+[node name="LevelManager" type="Node" parent="." unique_id=1977878097]
+script = ExtResource("2_1c3e0")
+
+[node name="GameManager" type="Node" parent="." unique_id=1578655604]
+script = ExtResource("3_n5d1b")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2063007526]
+
+[node name="HUD" parent="UI" unique_id=357972731 instance=ExtResource("4_kr13t")]
+
+[node name="WinPopup" parent="UI" unique_id=1516177416 instance=ExtResource("5_q6a8o")]
+
+[node name="LosePopup" parent="UI" unique_id=1166512319 instance=ExtResource("6_gq0ee")]
+
+[node name="BonusPopup" parent="UI" unique_id=605901393 instance=ExtResource("7_ly6n5")]
+
+[node name="ResultPopup" parent="UI" unique_id=786812158 instance=ExtResource("12_4w5aa")]

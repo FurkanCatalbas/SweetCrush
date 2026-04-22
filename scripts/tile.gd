@@ -36,6 +36,33 @@ func set_cell(new_cell: Vector2i) -> void:
 func set_selected(selected: bool) -> void:
 	is_selected = selected
 	_update_visuals()
+	if selected:
+		play_pulse(1.08, 0.14)
+
+
+func play_pulse(scale_multiplier: float = 1.12, duration: float = 0.16) -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "scale", Vector2.ONE * scale_multiplier, duration * 0.45).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2.ONE, duration * 0.55).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+func play_land_bounce() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1.08, 0.92), 0.08).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.12).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+
+
+func play_match_clear(duration: float = 0.18) -> Tween:
+	var tween: Tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, "scale", Vector2(0.2, 0.2), duration).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "modulate:a", 0.0, duration)
+	return tween
+
+
+func reset_visual_state() -> void:
+	scale = Vector2.ONE
+	modulate = Color(1, 1, 1, 1)
 
 
 func _update_geometry() -> void:

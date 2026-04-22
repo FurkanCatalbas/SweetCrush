@@ -6,3 +6,5 @@
 script = ExtResource("1_4q8cv")
 
 [node name="TileLayer" type="Node2D" parent="."]
+
+[node name="JuiceLayer" type="Node2D" parent="."]

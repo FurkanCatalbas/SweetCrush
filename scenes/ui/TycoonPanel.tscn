@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/tycoon_panel.gd" id="1_0e2tw"]
+
+[node name="TycoonPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_0e2tw")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Panel" type="PanelContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Root" type="VBoxContainer" parent="Margin/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Margin/Panel/Root"]
+layout_mode = 2
+text = "Tycoon"
+
+[node name="HeaderGrid" type="GridContainer" parent="Margin/Panel/Root"]
+layout_mode = 2
+columns = 2
+
+[node name="WalletTitle" type="Label" parent="Margin/Panel/Root/HeaderGrid"]
+layout_mode = 2
+text = "Wallet"
+
+[node name="WalletValue" type="Label" parent="Margin/Panel/Root/HeaderGrid"]
+layout_mode = 2
+text = "0"
+
+[node name="IncomeTitle" type="Label" parent="Margin/Panel/Root/HeaderGrid"]
+layout_mode = 2
+text = "Passive Income"
+
+[node name="IncomeValue" type="Label" parent="Margin/Panel/Root/HeaderGrid"]
+layout_mode = 2
+text = "0 / min"
+
+[node name="StatusTitle" type="Label" parent="Margin/Panel/Root/HeaderGrid"]
+layout_mode = 2
+text = "Status"
+
+[node name="StatusValue" type="Label" parent="Margin/Panel/Root/HeaderGrid"]
+layout_mode = 2
+text = "Ready"
+
+[node name="LevelButtons" type="VBoxContainer" parent="Margin/Panel/Root"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="NormalLevelButton" type="Button" parent="Margin/Panel/Root/LevelButtons"]
+layout_mode = 2
+text = "Normal (100)"
+
+[node name="MediumLevelButton" type="Button" parent="Margin/Panel/Root/LevelButtons"]
+layout_mode = 2
+text = "Medium (250)"
+
+[node name="HardLevelButton" type="Button" parent="Margin/Panel/Root/LevelButtons"]
+layout_mode = 2
+text = "Hard (500)"
+
+[node name="BuildingsScroll" type="ScrollContainer" parent="Margin/Panel/Root"]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BuildingsList" type="VBoxContainer" parent="Margin/Panel/Root/BuildingsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
